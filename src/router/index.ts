@@ -5,7 +5,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/login',
     name: 'Login',
-    component: import(/* webpackChunkName: "login" */ '@/views/pages/Login.vue'),
+    component: () => import(/* webpackChunkName: "login" */ '@/views/pages/Login.vue'),
     beforeEnter: (to, from, next) => {
       const isLoggedIn = store.getters['auth/isLoggedIn']
       if (isLoggedIn) {
@@ -20,7 +20,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'Dashboard',
-    component: import(/* webpackChunkName: "dashboard" */ '../views/pages/Dashboard.vue'),
+    component: () => import(/* webpackChunkName: "dashboard" */ '../views/pages/Dashboard.vue'),
     beforeEnter: (to, from, next) => {
       const isLoggedIn = store.getters['auth/isLoggedIn']
       if (!isLoggedIn) {
