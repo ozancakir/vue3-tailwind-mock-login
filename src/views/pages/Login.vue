@@ -96,6 +96,7 @@ export default defineComponent({
     }
   },
   methods: {
+    // eslint-disable-next-line
     async signin (fn:any) {
       const result = await fn()
       if (result && result.valid) {

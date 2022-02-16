@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { createStore, Module } from 'vuex'
 
 const auth:Module<any, any> = {
