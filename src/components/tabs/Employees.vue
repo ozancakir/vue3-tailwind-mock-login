@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-1 flex-wrap space-x-8 ">
+  <div class="flex flex-1 space-x-8">
     <div class="responsive-section">
       <BasicCard header="working on">
         <SummaryTile
@@ -9,37 +9,58 @@
           :item="item"
         ></SummaryTile>
       </BasicCard>
-      <BasicCard>
-        <SummaryTile
-          class="bottom-minimal-border p-5"
-          v-for="(item, i) in working"
+      <div
+        v-if="leftExtras && leftExtras.length > 0"
+        class="flex flex-none space-y-2 w-full"
+      >
+        <EvaluationCard
+          v-for="(item, i) in leftExtras"
           :key="i"
           :item="item"
-        ></SummaryTile>
-      </BasicCard>
+        ></EvaluationCard>
+      </div>
     </div>
     <div class="responsive-section">
       <BasicCard header="watching">
         <div
-          class="bottom-minimal-border py-5 px-8 "
+          class="bottom-minimal-border py-5 px-8"
           v-for="(item, i) in watching"
           :key="i"
         >
           <SummaryTile icon="user" dont-color :item="item"></SummaryTile>
-          <p class="py-2 text-text-primary-light text-sm">{{ item.description }}</p>
+          <Description :description="item.description"></Description>
           <div>
-            <BasicButton :key="action" :reverse="j%2!=0" v-for="(action,j) in item.actions" :label="`${action} projects`"></BasicButton>
+            <BasicButton
+              :key="action"
+              :reverse="j % 2 != 0"
+              v-for="(action, j) in item.actions"
+              :label="`${action} projects`"
+            ></BasicButton>
           </div>
         </div>
       </BasicCard>
-      <BasicCard class="p-5 px-8" v-for="(item,i) in middleExtras" :key="i">
-
-      <PointedTile  :item="item"></PointedTile>
-            <BasicButton :key="action" :reverse="j%2!=0" v-for="(action,j) in item.actions" :label="`${action} projects`"></BasicButton>
-
+      <BasicCard class="p-5 px-8" v-for="(item, i) in middleExtras" :key="i">
+        <PointedTile :item="item"></PointedTile>
+        <BasicButton
+          :key="action"
+          :reverse="j % 2 != 0"
+          v-for="(action, j) in item.actions"
+          :label="`${action} projects`"
+        ></BasicButton>
       </BasicCard>
     </div>
-    <div class="responsive-section"></div>
+    <div class="responsive-section">
+      <div
+        v-if="rightExtras && rightExtras.length > 0"
+        class="flex flex-none space-y-2 w-full"
+      >
+        <EvaluationCard
+          v-for="(item, i) in rightExtras"
+          :key="i"
+          :item="item"
+        ></EvaluationCard>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -49,6 +70,8 @@ import BasicCard from '../cards/BasicCard.vue'
 import SummaryTile from '../cards/SummaryTile.vue'
 import BasicButton from '../BasicButton.vue'
 import PointedTile from '../cards/PointedTile.vue'
+import EvaluationCard from '../cards/EvaluationCard.vue'
+import Description from '../cards/Description.vue'
 
 export default defineComponent({
   setup () {
@@ -130,13 +153,18 @@ In publishing and graphic design, Lorem ipsum is a placeholder text commonly use
           type: 'kanban',
           subtitle: 'Description line here',
           actions: ['manage']
-
         }
       ]
-
     }
   },
-  components: { BasicCard, SummaryTile, BasicButton, PointedTile }
+  components: {
+    BasicCard,
+    SummaryTile,
+    BasicButton,
+    PointedTile,
+    EvaluationCard,
+    Description
+  }
 })
 </script>
 

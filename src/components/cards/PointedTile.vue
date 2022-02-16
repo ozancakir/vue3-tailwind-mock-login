@@ -2,24 +2,21 @@
   <div class="flex flex-1 items-center">
     <SquareAvatar :icon="icon" :type="item.type"></SquareAvatar>
     <div class="pl-2 text-sm">
-      <h3>
-        <span
-          class="font-normal text-text-primary-light pr-1"
-          v-if="item.prepend"
-          >{{ item.prepend }}</span
-        >
+      <h3 class="flex flex-none">
+        <span class="font-normal text-text-primary-light pr-1" v-if="item.prepend">{{
+          item.prepend
+        }}</span>
         <span class="font-bold">{{ item.title }}</span>
+        <img class="pl-3" :src="require('@/assets/images/star.svg')" alt="" />
       </h3>
       <span v-if="item.tags" class="pr-1">
         <span v-for="(tag, i) in item.tags" :key="i">{{
           `#${tag.number} ${tag.type}`
         }}</span>
       </span>
-      <span
-        class=" text-text-primary-light"
-        v-if="item.subtitle"
-        >{{ item.subtitle }}</span
-      >
+      <span class="text-text-primary-light" v-if="item.subtitle">{{
+        item.subtitle
+      }}</span>
     </div>
   </div>
 </template>

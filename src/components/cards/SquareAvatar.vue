@@ -1,10 +1,13 @@
 <template>
-    <div class="w-12 h-12 flex flex-none items-center justify-center rounded-md" :class="type=='kanban'?'bg-bg-accent-alternate':'bg-bg-accent'">
-<img class="w-2/3 h-2/3" :src="require(`@/assets/images/${image}`)">
-    </div>
+  <div
+    class="w-12 h-12 flex flex-none items-center justify-center rounded-md"
+    :class="type == 'kanban' ? 'bg-bg-accent-alternate' : 'bg-bg-accent'"
+  >
+    <img class="w-2/3 h-2/3" :src="require(`@/assets/images/${image}`)" />
+  </div>
 </template>
 
-<script >
+<script>
 import { defineComponent } from 'vue'
 
 export default defineComponent({
@@ -32,10 +35,7 @@ export default defineComponent({
       return images[this.icon] ?? images.leaf
     }
   }
-
 })
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

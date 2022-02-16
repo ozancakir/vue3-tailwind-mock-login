@@ -1,20 +1,14 @@
 <template>
   <div
     class="flex flex-1 items-center"
-    :class="
-      item.type == 'kanban' && !dontColor
-        ? 'bg-bg-primary-dark'
-        : 'bg-bg-primary'
-    "
+    :class="item.type == 'kanban' && !dontColor ? 'bg-bg-primary-dark' : 'bg-bg-primary'"
   >
     <SquareAvatar :icon="icon" :type="item.type"></SquareAvatar>
     <div class="pl-2 text-sm">
       <h3>
-        <span
-          class="font-normal text-text-primary-light pr-1"
-          v-if="item.prepend"
-          >{{ item.prepend }}</span
-        >
+        <span class="font-normal text-text-primary-light pr-1" v-if="item.prepend">{{
+          item.prepend
+        }}</span>
         <span class="font-bold">{{ item.title }}</span>
       </h3>
       <span v-if="item.tags" class="pr-1">
@@ -23,9 +17,7 @@
         }}</span>
       </span>
       <span
-        :class="
-          item.type == 'kanban' ? 'text-bg-accent-alternate' : 'text-bg-accent'
-        "
+        :class="item.type == 'kanban' ? 'text-bg-accent-alternate' : 'text-bg-accent'"
         v-if="item.subtitle"
         >{{ item.subtitle }}</span
       >

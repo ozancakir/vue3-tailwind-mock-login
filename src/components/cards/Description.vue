@@ -1,5 +1,7 @@
 <template>
-  <img class="aspect-square w-10 cursor-pointer" src="@/assets/images/headerIcon.svg" />
+  <p class="py-2 text-text-primary-light text-sm">
+    {{ description }}
+  </p>
 </template>
 
 <script lang="ts">
@@ -8,7 +10,8 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   setup () {
     return {}
-  }
+  },
+  props: ['description']
 })
 </script>
 

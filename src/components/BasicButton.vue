@@ -1,10 +1,11 @@
 <template>
-   <button @click="e=>$emit('onClick')"
-              class=" py-2 mt-4 rounded-md w-full font-bold capitalize"
-              :class="reverse?'bg-bg-primary-darker text-primary':'bg-primary text-white'"
-            >
-              <span>{{label}}</span>
-            </button>
+  <button
+    @click="(e) => $emit('onClick')"
+    class="py-2 mt-4 rounded-md w-full font-bold capitalize"
+    :class="reverse ? 'bg-bg-primary-darker text-primary' : 'bg-primary text-white'"
+  >
+    <span>{{ label }}</span>
+  </button>
 </template>
 
 <script lang="ts">
@@ -21,6 +22,4 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

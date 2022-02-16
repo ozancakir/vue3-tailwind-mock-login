@@ -1,8 +1,11 @@
 <template>
- <div
-    class=" shadow-lg border border-text-primary-light border-opacity-10 rounded-md relative overflow-hidden"
+  <div
+    class="shadow-lg border border-text-primary-light border-opacity-10 rounded-md relative overflow-hidden"
   >
-    <div v-if="header" class="w-full h-10 bg-bg-primary-dark flex items-center border-b border-text-primary-light border-opacity-10">
+    <div
+      v-if="header"
+      class="w-full h-10 bg-bg-primary-dark flex items-center border-b border-text-primary-light border-opacity-10"
+    >
       <span class="px-4 text-text-primary uppercase font-bold text-sm">{{ header }}</span>
     </div>
     <slot />
@@ -19,12 +22,9 @@ export default defineComponent({
   props: {
     header: {
       type: String
-
     }
   }
 })
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

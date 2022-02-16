@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-none space-x-2 items-center font-semibold">
+  <div class="flex flex-none space-x-2 items-center font-semibold cursor-pointer">
     <img :src="require(`@/assets/images/${value.image}`)" alt="" />
     <span>{{ value.title }}</span>
   </div>

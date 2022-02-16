@@ -51,10 +51,7 @@ export default defineComponent({
   },
   computed: {
     currentTab (): string {
-      return (
-        this.tabs?.find((e) => e?.title === this.selected)?.component ??
-        'Employees'
-      )
+      return this.tabs?.find((e) => e?.title === this.selected)?.component ?? 'Employees'
     }
   },
   components: { HeaderLayout, SearchInput, Tabs, Departments, Employees }
